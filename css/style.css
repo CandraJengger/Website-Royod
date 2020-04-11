@@ -23,8 +23,8 @@
     width: 94%;
     display: flex;
     padding: 35px 80px;
-    z-index: 111;
-    background-color: #F3F8FC;
+    z-index: 111111;
+    background-color: transparent;
 }
 
 .navbar .nav-logo img{
@@ -80,18 +80,28 @@ main {
 main #content {
     width: 94%;
     height: 100vh;
+    position: relative;
 }
 
-main #content img {
-    width: 100%;
+main #content .hero {
+    background: linear-gradient(rgba(205, 226, 243, 0.23),rgba(205, 226, 243, 0.23)),
+    url(../img/hero.jpg);
+    width: 93%;
     height: 100vh;
-    margin-top: -90px;
+    background-position-y: -570px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1111;
+
 }
 
 main #content article {
     position: absolute;
-    top: 150px;
-    right: 230px;
+    top: 130px;
+    right: 140px;
+    z-index: 111111;
 }
 
 main #content article .judul {
@@ -118,12 +128,13 @@ main #content article .btn-explore {
     border: 3px solid #29362F;
     background-color: transparent;
     border-radius: 50px;
-    transform: translateX(30px);
+    transform: translate(30px, 0);
     cursor: pointer;
+    transition: .3s;
 }
 
 main #content article .btn-explore:hover {
-    
+    transform: translate(30px, -3px)
 }
 .sidebar {
     width: 6%;
