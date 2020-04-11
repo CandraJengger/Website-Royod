@@ -16,6 +16,8 @@
     font-family: Roboto;
 }
 
+
+/* Navbar */
 .navbar {
     position: absolute;
     top: 0;
@@ -69,6 +71,8 @@
     width: 100%;
 }
 
+
+/* Main */
 main {
     position: relative;
     top: 0;
@@ -136,6 +140,21 @@ main #content article .btn-explore {
 main #content article .btn-explore:hover {
     transform: translate(30px, -3px)
 }
+
+main .arrow {
+    position: absolute;
+    z-index: 11111;
+    bottom: 30px;
+    left: 50px;
+}
+
+main .arrow i {
+    font-size: 25px;
+    color: #29362F;
+    transition: .5s;
+}
+
+/* Sidebar */
 .sidebar {
     width: 6%;
     position: fixed;
@@ -179,3 +198,27 @@ main #content article .btn-explore:hover {
     cursor: pointer;
 }
 
+
+/* Footer */
+.footer {
+    font-family: sans-serif;
+    width: 94%;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 130px;
+    padding: 0 50px;
+}
+
+.footer mark {
+    background-color: #fff;
+    color: #29362F;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer #time {
+    font-family: sans-serif;
+    font-size: 18px;
+}
