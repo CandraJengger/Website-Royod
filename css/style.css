@@ -86,7 +86,7 @@ main #content {
 main #content .hero {
     background: linear-gradient(rgba(205, 226, 243, 0.23),rgba(205, 226, 243, 0.23)),
     url(../img/hero.jpg);
-    width: 93%;
+    width: 80%;
     height: 100vh;
     background-position-y: -570px;
     overflow: hidden;
@@ -138,10 +138,10 @@ main #content article .btn-explore:hover {
 }
 .sidebar {
     width: 6%;
-    height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
 }
 
 .sidebar .sidebar-list {
