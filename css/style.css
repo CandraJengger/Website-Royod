@@ -22,7 +22,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 94%;
     display: flex;
     padding: 35px 80px;
     z-index: 11111111;
@@ -75,27 +75,36 @@
 header .tab-open {
     position: fixed;
     right: 50px;
-    top: 90px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 11111;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    line-height: 35px;
-
-    text-align: center;
     padding-right: 2px;
     padding-top: 1px;
+    cursor: pointer;
+    display: none;
 }
 
-.navbar.white {
+header .tab-open i {
+    font-size: 25px;
+    color: #cacaca91;
+    transition: .3s;
+}
+
+header .tab-open i:hover {
+    color: #6d6d6d91
+}
+
+.navbar.green {
     background-color: #29362F;
-    padding: 10px 80px;
+    padding: 5px 80px;
 }
 
-.navbar.white .nav-links li a {
+
+.navbar.green .nav-links li a {
     color: #fff;
+    font-weight: normal;
 }
-.navbar.white .nav-links li::after {
+.navbar.green .nav-links li::after {
     background-color: #fff;
 }
 
@@ -105,8 +114,9 @@ main {
     position: relative;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 94%;
     background-color: #F3F8FC;
+    transition: .3s;
 }
 
 main #content {
@@ -126,7 +136,7 @@ main #content .hero {
     bottom: 0;
     left: 0;
     z-index: 1111;
-
+    transition: .3s;
 }
 
 main #content article {
@@ -237,15 +247,14 @@ main .arrow .down {
 /* Footer */
 .footer {
     font-family: sans-serif;
-    width: 100%;
+    width: 94%;
     height: 0px;
     display: none;
     justify-content: space-between;
     line-height: 0px;
     background-color: #fff;
     padding: 0 100px 0 0;
-
-    transition: .3s height;
+    transition: .3s height, .3s;
 
 
 }
