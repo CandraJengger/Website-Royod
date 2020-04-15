@@ -110,7 +110,7 @@ header .tab-open i:hover {
 
 
 /* Main */
-.main-about {
+.main-contact {
     position: relative;
     top: 0;
     left: 0;
@@ -120,24 +120,39 @@ header .tab-open i:hover {
     height: 100vh;
     text-align: center;
 }
-.main-about article {
-    width: 50%;
+.main-contact article {
+    width: 70%;
     position: absolute;
     top: 138px;
     left: 50%;
     transform: translateX(-50%);
 }
-.main-about article h2 {
+.main-contact article figure {
+    text-align: center;
+}
+
+.main-contact article figure img {
+    margin-bottom: 15px;
+    border-radius: 50%;
+    width: 200px;
+}
+.main-contact article figure figcaption {
+    line-height: 30px;
+    max-width: 340px;
+    margin: auto;
+}
+.main-contact article figure figcaption p {
+    text-align: left;
+    margin: 0 auto;
+}
+.main-contact article h2 {
     color: #000;
     font-family: 'DM Serif';
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    font-size: 40px;
     font-weight: normal;
-    font-size: 35px;
 }
-.main-about article p {
-    font-size: 18px;
-    color: #777777;
-}
+
 
 
 
