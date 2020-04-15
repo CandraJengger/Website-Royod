@@ -36,6 +36,7 @@ tabSidebar.addEventListener('click',function() {
     navbar.style.width = '100%'
     main.style.width = '100%'
     footer.style.width = '100%'
+    
     if(window.innerWidth > 1198) {
         hero.style.backgroundPositionY = '-540px'
         hero.style.backgroundPositionX = '100px'
