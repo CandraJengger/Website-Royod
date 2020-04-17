@@ -37,19 +37,20 @@ tabSidebar.addEventListener('click',function() {
     main.style.width = '100%'
     footer.style.width = '100%'
     if(window.innerWidth > 1198) {
-        // hero.style.backgroundPositionY = '-540px'
-        // hero.style.backgroundPositionX = '100px'
+        hero.style.backgroundPositionY = '-540px'
+        hero.style.backgroundPositionX = '100px'
+        HideSearch()
     } else if(window.innerWidth < 1198 && window.innerWidth > 1100) {
-        // hero.style.backgroundPositionY = '-540px'
-        // hero.style.backgroundPositionX = '50px'
+        hero.style.backgroundPositionY = '-540px'
+        hero.style.backgroundPositionX = '50px'
+        HideSearch()
     } else if(window.innerWidth < 1100 && window.innerWidth > 835) {
-        // hero.style.backgroundPositionY = '-360px'
-        // hero.style.backgroundPositionX = '-20px'
+        hero.style.backgroundPositionY = '-360px'
+        hero.style.backgroundPositionX = '-20px'
+        HideSearch()
+    }  else if(window.innerWidth <= 835) {
+        tabOpen.style.display = 'none'
     }
-
-
-   HideSearch()
-    
 })
 
 tabOpen.addEventListener('click', function() {
@@ -94,13 +95,108 @@ main.firstElementChild.addEventListener('click', function() {
     HideSearch()
 })
 
-
 window.addEventListener('scroll',function(e) {
     if(window.scrollY > 30) {
         document.querySelector('.navbar').classList.add('green')
     } else {
         document.querySelector('.navbar').classList.remove('green')
     }
+})
+
+//! Make Responsive to Mobile
+const navLinks = navbar.querySelector('.nav-links')
+const sidebarList = sidebar.children[0]
+
+const times = document.createElement('i')
+times.setAttribute('class', 'fas fa-times')
+
+const wrapSearch = sidebarList.querySelector('.wrap')
+
+const stream = sidebarList.querySelector('.fa-stream')
+stream.setAttribute('id','stream2')
+
+window.addEventListener('load',function() {
+        if(window.innerWidth <= 835) {
+
+
+            sidebarList.style.paddingLeft = "40px"
+            sidebar.style.width = "0px"
+            sidebar.style.backgroundColor = "#fff"
+            navbar.style.width = '100%'
+            main.style.width = '100%'
+            footer.style.width = '100%'
+    
+            sidebarList.insertBefore(navLinks, wrapSearch)
+            if(sidebarList.children[0] == navLinks) {
+                setTimeout(function(){
+                     sidebarList.insertBefore(times, navLinks)
+                }, 500)
+            }
+            
+    
+            navbar.appendChild(stream)
+         
+        
+    } else {
+        if(sidebarList.children[0] == times) {
+            sidebarList.removeChild(times)
+        } else {
+            sidebarList.style.paddingLeft = "0px"
+            sidebar.style.width = "80px"
+            stream.setAttribute('id','stream')
+            sidebarList.insertBefore(stream, wrapSearch)
+            navbar.appendChild(navLinks)
+            
+        }
+    }
+})
+
+times.addEventListener('click', function() {
+    sidebar.style.right = '-400px'
+    navbar.style.width = '100%'
+    main.style.width = '100%'
+    footer.style.width = '100%'
+})
+
+stream.addEventListener('click', function() {
+    sidebar.style.width = '300px'
+    sidebar.style.right = '0'
+    search.style.transform = ('translate(-35px,12px)')
+})
+
+window.addEventListener('resize', function() {
+    if(window.innerWidth <= 835) {
+
+
+        sidebarList.style.paddingLeft = "40px"
+        sidebar.style.width = "0px"
+        sidebar.style.backgroundColor = "#fff"
+        navbar.style.width = '100%'
+        main.style.width = '100%'
+        footer.style.width = '100%'
+
+        sidebarList.insertBefore(navLinks, wrapSearch)
+        if(sidebarList.children[0] == navLinks) {
+            setTimeout(function(){
+                 sidebarList.insertBefore(times, navLinks)
+            }, 500)
+        }
+        
+
+        navbar.appendChild(stream)
+     
+    }  else {
+        if(sidebarList.children[0] == times) {
+            sidebarList.removeChild(times)
+        } else {
+            sidebarList.style.paddingLeft = "0px"
+            sidebar.style.width = "80px"
+            stream.setAttribute('id','stream')
+            sidebarList.insertBefore(stream, wrapSearch)
+            navbar.appendChild(navLinks)
+            
+        }
+     }
 })
 
 const figcaption = document.querySelectorAll('.main-products #content .card figcaption') 
