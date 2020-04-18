@@ -123,28 +123,27 @@ const stream = sidebarList.querySelector('.fa-stream')
 stream.setAttribute('id','stream2')
 
 window.addEventListener('load',function() {
-        if(window.innerWidth <= 835) {
+    if(window.innerWidth <= 835) {
 
 
-            sidebarList.style.paddingLeft = "40px"
-            sidebar.style.width = "0px"
-            sidebar.style.backgroundColor = "#fff"
-            navbar.style.width = '100%'
-            main.style.width = '100%'
-            footer.style.width = '100%'
-    
-            sidebarList.insertBefore(navLinks, wrapSearch)
-            if(sidebarList.children[0] == navLinks) {
-                setTimeout(function(){
-                     sidebarList.insertBefore(times, navLinks)
-                }, 500)
-            }
-            
-    
-            navbar.appendChild(stream)
-         
+        sidebarList.style.paddingLeft = "40px"
+        sidebar.style.width = "0px"
+        sidebar.style.backgroundColor = "#fff"
+        navbar.style.width = '100%'
+        main.style.width = '100%'
+        footer.style.width = '100%'
+
+        sidebarList.insertBefore(navLinks, wrapSearch)
+        if(sidebarList.children[0] == navLinks) {
+            setTimeout(function(){
+                 sidebarList.insertBefore(times, navLinks)
+            }, 500)
+        }
         
-    } else {
+
+        navbar.appendChild(stream)
+     
+    }else {
         if(sidebarList.children[0] == times) {
             sidebarList.removeChild(times)
         } else {
