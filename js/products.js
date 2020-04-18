@@ -36,22 +36,33 @@ tabSidebar.addEventListener('click',function() {
     navbar.style.width = '100%'
     main.style.width = '100%'
     footer.style.width = '100%'
+    search.style.transform = 'translateX(-10px,0)'
+
     if(window.innerWidth > 1198) {
-        hero.style.backgroundPositionY = '-540px'
-        hero.style.backgroundPositionX = '100px'
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-540px'
+            hero.style.backgroundPositionX = '100px'
+        }
+        
         HideSearch()
     } else if(window.innerWidth < 1198 && window.innerWidth > 1100) {
-        hero.style.backgroundPositionY = '-540px'
-        hero.style.backgroundPositionX = '50px'
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-540px'
+            hero.style.backgroundPositionX = '50px'
+        }
         HideSearch()
     } else if(window.innerWidth < 1100 && window.innerWidth > 835) {
-        hero.style.backgroundPositionY = '-360px'
-        hero.style.backgroundPositionX = '-20px'
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-360px'
+            hero.style.backgroundPositionX = '-20px'
+        }
         HideSearch()
     }  else if(window.innerWidth <= 835) {
         tabOpen.style.display = 'none'
     }
 })
+
+
 
 tabOpen.addEventListener('click', function() {
     sidebar.style.right = '0'
@@ -59,16 +70,24 @@ tabOpen.addEventListener('click', function() {
     navbar.style.width = '94%'
     main.style.width = '94%'
     footer.style.width = '94%'
+    search.style.transform = 'translateX(-10px,0)'
     if(window.innerWidth > 1198) {
-        // hero.style.backgroundPositionY = '-570px'
-        // hero.style.backgroundPositionX = '0'
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-570px'
+            hero.style.backgroundPositionX = '0'
+        }
+        
     } else if(window.innerWidth < 1198 && window.innerWidth > 1100) {
-        // hero.style.backgroundPositionY = '-570px'
-        // hero.style.backgroundPositionX = '-150px'
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-570px'
+            hero.style.backgroundPositionX = '-150px'
+        }
     } else if(window.innerWidth < 1198 && window.innerWidth > 835) {
-        // hero.style.backgroundPositionY = '-400px'
-        // hero.style.backgroundPositionX = '-170px'
-    }
+        if(hero != null) {
+            hero.style.backgroundPositionY = '-400px'
+            hero.style.backgroundPositionX = '-170px'
+        }
+    } 
     
 })
 
@@ -92,8 +111,11 @@ function HideSearch() {
 }
 
 main.firstElementChild.addEventListener('click', function() {
-    HideSearch()
+    if(window.innerWidth > 835) {
+        HideSearch()
+    }
 })
+
 
 window.addEventListener('scroll',function(e) {
     if(window.scrollY > 30) {
@@ -102,6 +124,7 @@ window.addEventListener('scroll',function(e) {
         document.querySelector('.navbar').classList.remove('green')
     }
 })
+
 
 //! Make Responsive to Mobile
 const navLinks = navbar.querySelector('.nav-links')
@@ -113,41 +136,41 @@ times.setAttribute('class', 'fas fa-times')
 const wrapSearch = sidebarList.querySelector('.wrap')
 
 const stream = sidebarList.querySelector('.fa-stream')
-stream.setAttribute('id','stream2')
 
 window.addEventListener('load',function() {
-        if(window.innerWidth <= 835) {
+    if(window.innerWidth <= 835) {
 
 
-            sidebarList.style.paddingLeft = "40px"
-            sidebar.style.width = "0px"
-            sidebar.style.backgroundColor = "#fff"
-            navbar.style.width = '100%'
-            main.style.width = '100%'
-            footer.style.width = '100%'
-    
-            sidebarList.insertBefore(navLinks, wrapSearch)
-            if(sidebarList.children[0] == navLinks) {
-                setTimeout(function(){
-                     sidebarList.insertBefore(times, navLinks)
-                }, 500)
-            }
+        sidebarList.style.paddingLeft = "40px"
+        sidebar.style.width = "0px"
+        sidebar.style.backgroundColor = "#fff"
+        navbar.style.width = '100%'
+        main.style.width = '100%'
+        footer.style.width = '100%'
+
+        sidebarList.insertBefore(navLinks, wrapSearch)
+        sidebarList.insertBefore(times, navLinks)
             
-    
-            navbar.appendChild(stream)
-         
         
-    } else {
+        
+
+        navbar.appendChild(stream)
+     
+    }else {
         if(sidebarList.children[0] == times) {
             sidebarList.removeChild(times)
         } else {
             sidebarList.style.paddingLeft = "0px"
-            sidebar.style.width = "80px"
             stream.setAttribute('id','stream')
             sidebarList.insertBefore(stream, wrapSearch)
             navbar.appendChild(navLinks)
-            
         }
+
+        navbar.style.width = '94%'
+        main.style.width = '94%'
+        footer.style.width = '94%'
+        sidebar.style.right = "0"
+        sidebar.style.width = "80px"
     }
 })
 
@@ -159,14 +182,19 @@ times.addEventListener('click', function() {
 })
 
 stream.addEventListener('click', function() {
-    sidebar.style.width = '300px'
-    sidebar.style.right = '0'
-    search.style.transform = ('translate(-35px,12px)')
+    
+    if(window.innerWidth <= 835) {
+        sidebar.style.width = '300px'
+        sidebar.style.right = '0'
+        search.style.transform = ('translate(-35px,12px)')
+    } else {
+        search.style.transform = ('translate(-10px,0px)')
+    }
 })
 
 window.addEventListener('resize', function() {
     if(window.innerWidth <= 835) {
-
+        stream.setAttribute('id','stream2')
 
         sidebarList.style.paddingLeft = "40px"
         sidebar.style.width = "0px"
@@ -182,7 +210,7 @@ window.addEventListener('resize', function() {
             }, 500)
         }
         
-
+        wrapSearch.querySelector('input').style.opacity = '1'
         navbar.appendChild(stream)
      
     }  else {
@@ -194,10 +222,19 @@ window.addEventListener('resize', function() {
             stream.setAttribute('id','stream')
             sidebarList.insertBefore(stream, wrapSearch)
             navbar.appendChild(navLinks)
+            wrapSearch.querySelector('input').style.opacity = '0'
+            search.style.transform = ('translate(-10px,0)')
+
+            navbar.style.width = '94%'
+            main.style.width = '94%'
+            footer.style.width = '94%'
+            sidebar.style.right = "0"
+            sidebar.style.width = "80px"
             
         }
      }
 })
+
 
 const figcaption = document.querySelectorAll('.main-products #content .card figcaption') 
 const cemara = figcaption[0].querySelector('.nilai1')
